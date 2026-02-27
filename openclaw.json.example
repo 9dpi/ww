@@ -1,0 +1,14 @@
+{
+  "gateway": {
+    "port": 18789,
+    "bind": "127.0.0.1",
+    "tailscale": {
+      "mode": "off"
+    }
+  },
+  "agent": {
+    "model": "anthropic/claude-3-5-sonnet-20241022",
+    "workspace": "~/.openclaw/workspace"
+  },
+  "channels": {}
+}

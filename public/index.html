@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3G CONTROL — SYSTEM</title>
+    <!-- Font giống WestWorld (Montserrat mảnh & Courier New) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-grid"></div>
+    <div class="overlay-scanline"></div>
+
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar section-border">
+            <div class="brand">
+                <div class="logo">
+                    <!-- Một dạng biểu tượng logo tối giản -->
+                    <svg viewBox="0 0 100 100" class="logo-svg">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" />
+                        <line x1="50" y1="5" x2="50" y2="95" stroke="currentColor" stroke-width="2" />
+                        <line x1="5" y1="50" x2="95" y2="50" stroke="currentColor" stroke-width="2" />
+                        <circle cx="50" cy="50" r="20" fill="currentColor" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-name">3G AI CONTROL</h1>
+                    <div class="brand-sub">CORE ENGINE V3.0</div>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li class="active" data-tab="webchat">
+                    <span class="nav-num">01.</span>
+                    <span class="nav-text">COMMUNICATIONS</span>
+                </li>
+                <li data-tab="dashboard">
+                    <span class="nav-num">02.</span>
+                    <span class="nav-text">TELEMETRY</span>
+                </li>
+                <li data-tab="settings">
+                    <span class="nav-num">03.</span>
+                    <span class="nav-text">BEHAVIOR MATRIX</span>
+                </li>
+            </ul>
+
+            <div class="connection-status">
+                <div class="status-top">
+                    <span class="status-label">SYS.LINK</span>
+                    <div class="status-indicator offline" id="socket-status"></div>
+                </div>
+                <div class="status-text mono" id="socket-text">DISCONNECTED</div>
+            </div>
+        </aside>
+
+        <!-- MAIN WINDOW -->
+        <main class="workspace section-border">
+            <header class="top-bar">
+                <div class="breadcrumbs mono">SYS > GATEWAY > <span id="current-view-title"
+                        class="highlight">COMMUNICATIONS</span></div>
+                <div class="system-time mono" id="sys-time">00:00:00:000</div>
+            </header>
+
+            <!-- COMM MODE (WebChat) -->
+            <section id="screen-webchat" class="screen active">
+                <div class="chat-container">
+                    <div class="messages-area" id="chat-messages">
+                        <div class="message system-msg">
+                            <div class="msg-bubble">[SYS] ENGINE BOOT SEQUENCE INITIATED... WAITING FOR HOST.</div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <div class="input-prefix mono">ADMIN:~$</div>
+                        <input type="text" id="chat-input" placeholder="Enter transmission..." autocomplete="off">
+                        <button id="btn-send" class="btn btn-outline mono">TRANSMIT_</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TELEMETRY (Dashboard) -->
+            <section id="screen-dashboard" class="screen">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-title mono">ROUTING PROTOCOL</div>
+                        <div class="stat-value">SMART</div>
+                        <div class="stat-desc">AUTOMATED LOAD BALANCER</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title mono">ACTIVE ENCOUNTERS</div>
+                        <div class="stat-value" id="context-count">000</div>
+                        <div class="stat-desc">MEMORY BLOCKS USED</div>
+                    </div>
+                    <div class="stat-card warning-card">
+                        <div class="stat-title mono">ANOMALY DETECTED</div>
+                        <div class="stat-value">NONE</div>
+                        <div class="stat-desc">SECURITY VERIFIED</div>
+                    </div>
+                </div>
+
+                <div class="logs-container">
+                    <div class="logs-header mono">
+                        <span>> ROOT LOG STREAM</span>
+                    </div>
+                    <div class="logs-body mono" id="system-logs">
+                        <div>Initializing terminal feed... OK.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BEHAVIOR MATRIX (Settings) -->
+            <section id="screen-settings" class="screen">
+                <div class="settings-card">
+                    <h3 class="mono view-title">NARRATIVE OVERRIDE</h3>
+                    <p class="description mono">// WARNING: Modifying core personality overrides host safe boundaries.
+                    </p>
+
+                    <div class="editor-wrap">
+                        <div class="editor-line-numbers mono">1<br>2<br>3<br>4<br>5</div>
+                        <textarea class="terminal-input mono" rows="10" spellcheck="false"># SOUL
+I am 3G AI, an advanced analytical framework.
+My responses are precise, cold, and factual.</textarea>
+                    </div>
+
+                    <button class="btn btn-outline mono mt-4">COMMIT OVERRIDE</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
