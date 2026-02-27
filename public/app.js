@@ -1,16 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. SYS Timer
-    const timeEl = document.getElementById('sys-time');
-    setInterval(() => {
-        const d = new Date();
-        const hrs = String(d.getHours()).padStart(2, '0');
-        const min = String(d.getMinutes()).padStart(2, '0');
-        const sec = String(d.getSeconds()).padStart(2, '0');
-        const ms = String(d.getMilliseconds()).padStart(3, '0');
-        timeEl.textContent = `${hrs}:${min}:${sec}:${ms}`;
-    }, 47);
-
-    // 2. UI Navigation
+    // 1. UI Navigation
     const navLinks = document.querySelectorAll('.nav-links li');
     const screens = document.querySelectorAll('.screen');
     const titleText = document.getElementById('current-view-title');
@@ -33,8 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. System Websocket
-    const wsUrl = `ws://${window.location.hostname}:18789/?type=webui`;
+    // 2. System Websocket (Fix cứng vào Server nội bộ trên PC)
+    let wsHost = window.location.hostname;
+    // Nếu chạy trên Github Pages, tự động ép kết nối trỏ về thiết bị chạy ngầm trên máy vật lý
+    if (wsHost.includes('github.io')) wsHost = '127.0.0.1';
+
+    // Lưu ý: Kết nối Websocket từ trang HTTPS (Github) tới máy Local (WS không bảo mật) sẽ bị trình duyệt chặn!
+    const wsUrl = `ws://${wsHost}:18789/?type=webui`;
     const socketStatusEl = document.getElementById('socket-status');
     const socketTextEl = document.getElementById('socket-text');
 
