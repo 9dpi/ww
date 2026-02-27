@@ -522,3 +522,140 @@ body {
     opacity: 0;
   }
 }
+
+/* RESPONSIVE DESIGN FOR TERMINAL */
+@media screen and (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .brand {
+    margin-bottom: 0;
+    gap: 10px;
+  }
+
+  .logo-svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .brand-name {
+    font-size: 0.9rem;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin: 0;
+  }
+
+  .nav-links li {
+    padding: 5px 0;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-links li.active {
+    border-left: none;
+    border-bottom-color: var(--accent);
+  }
+
+  .nav-text {
+    display: none;
+    /* Ẩn text trên điện thoại, chỉ hiển thị Icon Num (01, 02, 03) */
+  }
+
+  .nav-num {
+    font-size: 0.9rem;
+    opacity: 1;
+    color: var(--text-main);
+  }
+
+  .connection-status {
+    display: none;
+    /* Ẩn trạng thái cồng kềnh trên menu ngang */
+  }
+
+  .workspace {
+    margin: 0;
+    border: none;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .top-bar {
+    padding: 10px 15px;
+  }
+
+  .breadcrumbs {
+    font-size: 0.65rem;
+  }
+
+  .system-time {
+    font-size: 0.65rem;
+  }
+
+  .screen {
+    padding: 15px;
+  }
+
+  .message {
+    max-width: 95%;
+  }
+
+  .msg-bubble {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .input-prefix {
+    padding: 0 10px;
+    font-size: 0.7rem;
+  }
+
+  .chat-input-area input {
+    font-size: 0.85rem;
+    padding: 15px 0;
+  }
+
+  .btn-outline {
+    padding: 0 15px;
+    font-size: 0.75rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .settings-card {
+    padding: 15px;
+  }
+
+  .editor-line-numbers {
+    padding: 10px 5px;
+  }
+
+  .terminal-input {
+    padding: 10px;
+  }
+}
